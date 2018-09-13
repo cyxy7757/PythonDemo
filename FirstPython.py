@@ -84,5 +84,12 @@ def person(name, age, **kw):
 
 # 如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符*了
 
-def person(name, age, *args, city, job):
-    print(name, age, args, city, job)
+# def person(name, age, *args, city, job):
+#     print(name, age, args, city, job)
+
+# 递归函数
+def fact(n):
+    if n == 1:
+        return 1
+    return n * fact(n-1)
+print(fact(5))
