@@ -124,7 +124,7 @@ from enum import Enum, unique
 Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
 
 # 如果需要更精确地控制枚举类型，可以从Enum派生出自定义类：
-
+# Enum可以把一组相关常量定义在一个class中，且class不可变，而且成员可以直接比较。
 @unique
 class Weekday(Enum):
     Sun = 0 # Sun的value被设定为0
@@ -138,3 +138,10 @@ class Weekday(Enum):
 
 day1 = Weekday.Fri
 print('day1:',day1)
+
+# 既可以用成员名称引用枚举常量，又可以直接根据value的值获得枚举常量
+
+## 使用元类
+
+# 通过type()函数创建的类和直接写class是完全一样的，因为Python解释器遇到class定义时，仅仅是扫描一下class定义的语法，然后调用type()函数创建出class。
+
