@@ -79,3 +79,30 @@
 import base64
 
 print(base64.b64encode(b'dfdfdf'))
+
+# hashlib 摘要算法 md5 和 SHA1
+
+import hashlib
+md5 = hashlib.md5()
+md5.update('how to use md5 in python hashlib'.encode('utf-8'))
+# print(md5.hexdigest())
+
+# Python自带的hmac模块实现了标准的Hmac算法。我们来看看如何使用hmac实现带key的哈希。
+
+
+# Python的内建模块itertools提供了非常有用的用于操作迭代对象的函数
+import itertools
+natuals = itertools.count(1)
+ns = itertools.takewhile(lambda x : x <= 10,natuals)
+# print(list(ns))
+
+# urllib提供了一系列用于操作URL的功能
+# urllib的request模块可以非常方便地抓取URL内容，也就是发送一个GET请求到指定的页面，然后返回HTTP的响应：
+from urllib import request
+
+with request.urlopen('https://api.douban.com/v2/book/2129650') as f:
+    data = f.read()
+    print('Status:', f.status, f.reason)
+    for k, v in f.getheaders():
+        print('%s: %s'%(k, v))
+    print('Data:',data.decode('utf-8'))
